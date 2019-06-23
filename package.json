@@ -4,15 +4,16 @@
   "description": "A tidy template for reveal.js",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp dev",
     "gulp": "gulp"
   },
   "author": "Julie Ng <me@julie.io>",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-hb": "^8.0.0",
-    "gulp-livereload": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "merge-stream": "^2.0.0",

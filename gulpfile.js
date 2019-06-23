@@ -1,16 +1,40 @@
-const { src, dest, parallel, series } = require('gulp')
+const { src, dest, parallel, series, watch } = require('gulp')
 const del = require('del')
 const sass = require('gulp-sass')
 const merge = require('merge-stream')
 const hb = require('gulp-hb')
 const rename = require('gulp-rename')
+const browserSync = require('browser-sync')
+const server = browserSync.create()
 const config = require('./slides.config.js')
+
+// Build and Template Setup
 
 function clean () {
 	return del([
     'build/**/*',
   ])
 }
+
+function reload (done) {
+  server.reload()
+  done()
+}
+
+function serve (done) {
+  server.init({
+    server: {
+      baseDir: './build'
+    }
+  })
+  done()
+}
+
+function watcher () {
+	watch('theme/scss/**/*.scss', series(css, reload))
+	watch('theme/**/*.+(hbs|html)', series(html, reload))
+}
+
 
 // Tidy template
 
@@ -51,12 +75,20 @@ function init () {
 		.pipe(dest('./build/'))
 }
 
-exports.default = series(
-	clean,
-	parallel(
-		css,
-		html,
-		reveal
-	),
-	init
-)
+// Public Gulp Tasks
+
+function build (done) {
+	return series(
+		clean,
+		parallel(
+			css,
+			html,
+			reveal
+		),
+		init
+	)(done)
+}
+
+exports.default = build
+exports.build = build
+exports.dev = series(build, serve, watcher)

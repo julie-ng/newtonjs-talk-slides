@@ -47,7 +47,7 @@ function reveal () {
 
 function init () {
 	return src('./reveal.init.js')
-		.pipe(rename('reveal.js'))
+		.pipe(rename('init.js'))
 		.pipe(dest('./build/'))
 }
 

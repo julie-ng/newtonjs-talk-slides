@@ -59,6 +59,9 @@ function css () {
 function html () {
 	const data = Object.assign({}, config, { slides: _findSlides() })
 	const hbstream = hb()
+		.helpers({
+			loadHTML: function (file) { return fs.readFileSync(file) }
+		})
 		.partials('./theme/partials/*.hbs')
 		.data(data)
 	return src('./theme/*.hbs')

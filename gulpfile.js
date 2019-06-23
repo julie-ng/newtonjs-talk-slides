@@ -1,5 +1,6 @@
 const { src, dest, parallel, series, watch } = require('gulp')
 const del = require('del')
+const fs = require('fs')
 const sass = require('gulp-sass')
 const merge = require('merge-stream')
 const hb = require('gulp-hb')
@@ -32,9 +33,9 @@ function serve (done) {
 
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
-	watch('theme/**/*.+(hbs|html)', series(html, reload))
+	watch('theme/**/*.{hbs,html}', series(html, reload))
+	watch('slides/**/*', series(html, reload))
 }
-
 
 // Tidy template
 
@@ -45,10 +46,18 @@ function css () {
 }
 
 function html () {
+	const hbstream = hb()
+		.partials('./theme/partials/*.hbs')
+		.data(config)
 	return src('./theme/*.hbs')
-		.pipe(hb().data(config))
+		.pipe(hbstream)
 		.pipe(rename({ extname: '.html' }))
 		.pipe(dest('./build'))
+}
+
+function markdown () {
+	return src('./slides/**/*.md')
+		.pipe(dest('./build/slides'))
 }
 
 // Reveal.js Library
@@ -83,6 +92,7 @@ function build (done) {
 		parallel(
 			css,
 			html,
+			markdown,
 			reveal
 		),
 		init

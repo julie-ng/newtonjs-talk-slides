@@ -5,11 +5,17 @@ const sass = require('gulp-sass')
 const merge = require('merge-stream')
 const hb = require('gulp-hb')
 const rename = require('gulp-rename')
+const tree = require('directory-tree')
 const browserSync = require('browser-sync')
 const server = browserSync.create()
+
 const config = require('./slides.config.js')
+const slides = _filterTree(tree('./slides').children)
+const data = Object.assign({}, config, { slides: slides })
+
 
 // Build and Template Setup
+// ------------------------
 
 function clean () {
 	return del([
@@ -37,7 +43,34 @@ function watcher () {
 	watch('slides/**/*', series(html, reload))
 }
 
+function _filterTree (tree) {
+	let filtered = []
+	tree.forEach(function (child, i) {
+		if (child.type === 'directory') {
+			filtered.push({
+				folder: child.path,
+				slides: _filterTree(child.children)
+			})
+		}
+		else if (child.extension === '.html') {
+			filtered.push({
+				type: 'html',
+				content: fs.readFileSync(child.path)
+			})
+		}
+		else if (child.extension === '.md') {
+			filtered.push({
+				type: 'markdown',
+				content: child.path
+			})
+		}
+	})
+	return filtered
+}
+
+
 // Tidy template
+// -------------
 
 function css () {
 	return src('./theme/scss/*.scss')
@@ -48,7 +81,7 @@ function css () {
 function html () {
 	const hbstream = hb()
 		.partials('./theme/partials/*.hbs')
-		.data(config)
+		.data(data)
 	return src('./theme/*.hbs')
 		.pipe(hbstream)
 		.pipe(rename({ extname: '.html' }))
@@ -60,7 +93,9 @@ function markdown () {
 		.pipe(dest('./build/slides'))
 }
 
+
 // Reveal.js Library
+// -----------------
 
 function reveal () {
 	return merge(
@@ -84,7 +119,9 @@ function init () {
 		.pipe(dest('./build/'))
 }
 
+
 // Public Gulp Tasks
+// -----------------
 
 function build (done) {
 	return series(
@@ -98,6 +135,10 @@ function build (done) {
 		init
 	)(done)
 }
+
+
+// Exports
+// -------
 
 exports.default = build
 exports.build = build

@@ -37,12 +37,18 @@ function serve (done) {
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
 	watch('theme/**/*.{hbs,html}', series(html, reload))
-	watch('slides/**/*', series(html, markdown, reload))
+	watch('images/**/*', series(images, reload))
+	watch('slides/**/*', series(markdown, html, reload))
 }
 
 
 // Tidy template
 // -------------
+
+function images () {
+	return src('./images/**/*')
+		.pipe(dest('./build/images'))
+}
 
 function css () {
 	return src('./theme/scss/*.scss')
@@ -136,6 +142,7 @@ function build (done) {
 		parallel(
 			css,
 			html,
+			images,
 			markdown,
 			reveal
 		),

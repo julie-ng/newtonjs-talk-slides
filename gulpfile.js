@@ -5,13 +5,10 @@ const sass = require('gulp-sass')
 const merge = require('merge-stream')
 const hb = require('gulp-hb')
 const rename = require('gulp-rename')
-const tree = require('directory-tree')
+const directoryTree = require('directory-tree')
 const browserSync = require('browser-sync')
 const server = browserSync.create()
-
 const config = require('./slides.config.js')
-const slides = _filterTree(tree('./slides').children)
-const data = Object.assign({}, config, { slides: slides })
 
 
 // Build and Template Setup
@@ -40,32 +37,7 @@ function serve (done) {
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
 	watch('theme/**/*.{hbs,html}', series(html, reload))
-	watch('slides/**/*', series(html, reload))
-}
-
-function _filterTree (tree) {
-	let filtered = []
-	tree.forEach(function (child, i) {
-		if (child.type === 'directory') {
-			filtered.push({
-				folder: child.path,
-				slides: _filterTree(child.children)
-			})
-		}
-		else if (child.extension === '.html') {
-			filtered.push({
-				type: 'html',
-				content: fs.readFileSync(child.path)
-			})
-		}
-		else if (child.extension === '.md') {
-			filtered.push({
-				type: 'markdown',
-				content: child.path
-			})
-		}
-	})
-	return filtered
+	watch('slides/**/*', series(html, markdown, reload))
 }
 
 
@@ -79,6 +51,7 @@ function css () {
 }
 
 function html () {
+	const data = Object.assign({}, config, { slides: _findSlides() })
 	const hbstream = hb()
 		.partials('./theme/partials/*.hbs')
 		.data(data)
@@ -117,6 +90,40 @@ function init () {
 	return src('./reveal.init.js')
 		.pipe(rename('init.js'))
 		.pipe(dest('./build/'))
+}
+
+
+// Helpers
+// -------
+
+function _findSlides (tree) {
+	let filtered = []
+
+	if (tree === undefined) {
+		tree = directoryTree('./slides').children
+	}
+
+	tree.forEach(function (child, i) {
+		if (child.type === 'directory') {
+			filtered.push({
+				folder: child.path,
+				slides: _findSlides(child.children)
+			})
+		}
+		else if (child.extension === '.html') {
+			filtered.push({
+				type: 'html',
+				content: fs.readFileSync(child.path)
+			})
+		}
+		else if (child.extension === '.md') {
+			filtered.push({
+				type: 'markdown',
+				content: child.path
+			})
+		}
+	})
+	return filtered
 }
 
 

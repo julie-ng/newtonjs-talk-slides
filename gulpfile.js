@@ -122,7 +122,7 @@ function _findSlides (tree) {
 		else if (child.extension === '.html') {
 			filtered.push({
 				type: 'html',
-				content: fs.readFileSync(child.path)
+				content: child.path
 			})
 		}
 		else if (child.extension === '.md') {

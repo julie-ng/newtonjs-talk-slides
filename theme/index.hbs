@@ -9,23 +9,21 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="revealjs/css/reset.css">
-		<link rel="stylesheet" href="revealjs/css/reveal.css">
-		{{!-- <link rel="stylesheet" href="revealjs/css/theme/black.css" id="theme"> --}}
+		<link rel="stylesheet" href="assets/vendor/revealjs/css/reset.css">
+		<link rel="stylesheet" href="assets/vendor/revealjs/css/reveal.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		{{!-- <link rel="stylesheet" href="css/highlight-atom-one-dark.css"> --}}
-		<link rel="stylesheet" href="vendor/prism-monokai.css">
+		<link rel="stylesheet" href="assets/vendor/prism-monokai.css">
 
 		<!-- Tidy Styles -->
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="assets/css/styles.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'assets/vendor/revealjs/css/print/pdf.css' : 'assets/vendor/revealjs/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
@@ -36,13 +34,12 @@
 	<body>
 
 		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				{{> slides }}
 			</div>
 		</div>
 
-		<script src="revealjs/reveal.js"></script>
+		<script src="assets/vendor/revealjs/reveal.js"></script>
 		<script>
 			Reveal.initialize({
 				controls: true,
@@ -50,26 +47,23 @@
 				center: false,
 				hash: true,
 				history: true,
-				// fragments: true,
-				width: 1280, //,'100%', //960,
-				height: 720, //'100%', // 700,
+				width: 1280,
+				height: 720,
 				margin: 0.1,
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// { src: 'revealjs/plugin/highlight/highlight.js', async: true },
-					// { src: 'revealjs/plugin/search/search.js', async: true },
-					// { src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'revealjs/plugin/notes/notes.js', async: true },
-					{ src: 'vendor/prism.js', async: true }
+					{ src: 'assets/vendor/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'assets/vendor/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'assets/vendor/revealjs/plugin/highlight/highlight.js', async: true },
+					// { src: 'assets/vendor/revealjs/plugin/search/search.js', async: true },
+					// { src: 'assets/vendor/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'assets/vendor/revealjs/plugin/notes/notes.js', async: true },
+					{ src: 'assets/vendor/prism.js', async: true }
 					// { src: 'https://platform.twitter.com/widgets.js', async: true }
 				]
 			})
-
 		</script>
-		{{!-- <script src="vendor/prism.js" async></script> --}}
-		{{!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> --}} </body>
+	</body>
 </html>

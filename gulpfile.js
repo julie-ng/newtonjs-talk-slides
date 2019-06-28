@@ -28,7 +28,7 @@ function reload (done) {
 function serve (done) {
   server.init({
     server: {
-      baseDir: './build'
+      baseDir: '.'
     }
   })
   done()
@@ -37,8 +37,8 @@ function serve (done) {
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
 	watch('theme/**/*.{hbs,html}', series(html, reload))
-	watch('theme/fonts/**/*', series(fonts, reload))
-	watch('images/**/*.{gif,jpg,png,svg}', series(images, reload))
+	// watch('theme/fonts/**/*', series(fonts, reload))
+	// watch('images/**/*.{gif,jpg,png,svg}', series(images, reload))
 	watch('slides/**/*.{html,md}', series(parallel(markdown, html), reload))
 }
 
@@ -46,20 +46,20 @@ function watcher () {
 // Tidy template
 // -------------
 
-function images () {
-	return src('./images/**/*')
-		.pipe(dest('./build/images'))
-}
+// function images () {
+// 	return src('./images/**/*')
+// 		.pipe(dest('./build/images'))
+// }
 
-function fonts () {
-	return src('./theme/fonts/**/*')
-		.pipe(dest('./build/fonts'))
-}
+// function fonts () {
+// 	return src('./theme/fonts/**/*')
+// 		.pipe(dest('./build/fonts'))
+// }
 
 function css () {
 	return src('./theme/scss/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(dest('./build/css'))
+		.pipe(dest('./assets/css'))
 }
 
 function html () {
@@ -78,18 +78,18 @@ function html () {
 	return src('./theme/*.hbs')
 		.pipe(hbstream)
 		.pipe(rename({ extname: '.html' }))
-		.pipe(dest('./build'))
+		.pipe(dest('.'))
 }
 
-function markdown () {
-	return src('./slides/**/*.md')
-		.pipe(dest('./build/slides'))
-}
+// function markdown () {
+// 	return src('./slides/**/*.md')
+// 		.pipe(dest('./build/slides'))
+// }
 
-function prism () {
-	return src('./vendor/**/*')
-		.pipe(dest('./build/vendor'))
-}
+// function prism () {
+// 	return src('./vendor/**/*')
+// 		.pipe(dest('./build/vendor'))
+// }
 
 
 // Reveal.js Library
@@ -98,24 +98,24 @@ function prism () {
 function reveal () {
 	return merge(
 		src('./node_modules/reveal.js/css/**/*.css')
-			.pipe(dest('./build/revealjs/css')),
+			.pipe(dest('./assets/vendor/revealjs/css')),
 
 		src('./node_modules/reveal.js/js/reveal.js')
-			.pipe(dest('./build/revealjs')),
+			.pipe(dest('./assets/vendor/revealjs')),
 
 		src('./node_modules/reveal.js/lib/**')
-			.pipe(dest('./build/revealjs/lib')),
+			.pipe(dest('./assets/vendor/revealjs/lib')),
 
 		src('./node_modules/reveal.js/plugin/**')
-			.pipe(dest('./build/revealjs/plugin'))
+			.pipe(dest('./assets/vendor/revealjs/plugin'))
 	)
 }
 
-function init () {
-	return src('./reveal.init.js')
-		.pipe(rename('init.js'))
-		.pipe(dest('./build/'))
-}
+// function init () {
+// 	return src('./reveal.init.js')
+// 		.pipe(rename('init.js'))
+// 		.pipe(dest('./build/'))
+// }
 
 
 // Helpers
@@ -161,13 +161,13 @@ function build (done) {
 		parallel(
 			css,
 			html,
-			fonts,
-			images,
-			markdown,
+			// fonts,
+			// images,
+			// markdown,
 			reveal,
-			prism
-		),
-		init
+			// prism
+		)//,
+		// init
 	)(done)
 }
 

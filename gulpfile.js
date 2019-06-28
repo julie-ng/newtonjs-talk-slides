@@ -37,8 +37,9 @@ function serve (done) {
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
 	watch('theme/**/*.{hbs,html}', series(html, reload))
-	watch('images/**/*', series(images, reload))
-	watch('slides/**/*', series(markdown, html, reload))
+	watch('theme/fonts/**/*', series(fonts, reload))
+	watch('images/**/*.{gif,jpg,png,svg}', series(images, reload))
+	watch('slides/**/*.{html,md}', series(parallel(markdown, html), reload))
 }
 
 
@@ -50,6 +51,11 @@ function images () {
 		.pipe(dest('./build/images'))
 }
 
+function fonts () {
+	return src('./theme/fonts/**/*')
+		.pipe(dest('./build/fonts'))
+}
+
 function css () {
 	return src('./theme/scss/*.scss')
 		.pipe(sass().on('error', sass.logError))
@@ -57,7 +63,12 @@ function css () {
 }
 
 function html () {
-	const data = Object.assign({}, config, { slides: _findSlides() })
+	const slides = _findSlides()
+	// console.log('---- slides ----')
+	// console.log(JSON.stringify(slides, null, 4))
+	// console.log('----')
+
+	const data = Object.assign({}, config, { slides: slides })
 	const hbstream = hb()
 		.helpers({
 			loadHTML: function (file) { return fs.readFileSync(file) }
@@ -73,6 +84,11 @@ function html () {
 function markdown () {
 	return src('./slides/**/*.md')
 		.pipe(dest('./build/slides'))
+}
+
+function prism () {
+	return src('./vendor/**/*')
+		.pipe(dest('./build/vendor'))
 }
 
 
@@ -145,9 +161,11 @@ function build (done) {
 		parallel(
 			css,
 			html,
+			fonts,
 			images,
 			markdown,
-			reveal
+			reveal,
+			prism
 		),
 		init
 	)(done)

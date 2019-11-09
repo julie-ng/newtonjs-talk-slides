@@ -6,7 +6,7 @@ These are my slides including links to images and documentations for my talk fro
 28 June 2019  
 Dornbirn, Austria
 
-**[View Slides Online &rarr;](https://julie-ng.github.io/workerconf-slides)**
+**[View Slides Online &rarr;](https://julie-ng.github.io/newtonjs-talk-slides)**
 
 ### Preview
 

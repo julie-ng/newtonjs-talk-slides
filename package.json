@@ -4,8 +4,9 @@
   "description": "A tidy template for reveal.js",
   "main": "index.js",
   "scripts": {
+    "build": "gulp build",
     "dev": "gulp dev",
-    "gulp": "gulp"
+    "start": "gulp serve"
   },
   "author": "Julie Ng <me@julie.io>",
   "license": "MIT",

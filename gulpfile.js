@@ -36,6 +36,7 @@ function serve (done) {
 
 function watcher () {
 	watch('theme/scss/**/*.scss', series(css, reload))
+	watch('theme/*.{hbs,html}', series(html, reload))
 	watch('theme/**/*.{hbs,html}', series(html, reload))
 	// watch('theme/fonts/**/*', series(fonts, reload))
 	// watch('images/**/*.{gif,jpg,png,svg}', series(images, reload))
@@ -178,3 +179,4 @@ function build (done) {
 exports.default = build
 exports.build = build
 exports.dev = series(build, serve, watcher)
+exports.serve = series(build, serve)

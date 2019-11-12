@@ -32,3 +32,26 @@ ul + pre {
 pre + pre {
 	margin-top: 1em;
 }
+
+// Presentation Footer
+
+.presentation-footer {
+	position: absolute;
+	font-size: var(--xxs-font-size);
+	color: var(--faded-heading-color);
+	left: 1em;
+	bottom: 1em;
+}
+
+.reveal {
+	.slide-number {
+		background: none;
+		font-size: var(--xxs-font-size);
+		color: var(--faded-heading-color);
+
+		a:link, a:visited {
+			color: var(--faded-heading-color);
+			text-decoration: none;
+		}
+	}
+}

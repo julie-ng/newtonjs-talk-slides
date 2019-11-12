@@ -21,6 +21,7 @@
   --base-font-size: 24px;
   --sm-font-size: 0.9em;
   --xs-font-size: 0.7em;
+  --xxs-font-size: 0.6em;
   --quote-font-size: 2rem; }
 
 body {
@@ -314,3 +315,18 @@ ul + pre {
 
 pre + pre {
   margin-top: 1em; }
+
+.presentation-footer {
+  position: absolute;
+  font-size: var(--xxs-font-size);
+  color: var(--faded-heading-color);
+  left: 1em;
+  bottom: 1em; }
+
+.reveal .slide-number {
+  background: none;
+  font-size: var(--xxs-font-size);
+  color: var(--faded-heading-color); }
+  .reveal .slide-number a:link, .reveal .slide-number a:visited {
+    color: var(--faded-heading-color);
+    text-decoration: none; }

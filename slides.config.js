@@ -1,3 +1,6 @@
 module.exports = {
-	title: 'WorkerConf - Visualizing cloud architectures in real time with d3.js'
+	title: 'Visualizing Cloud Architectures in Real Time with d3.js',
+	description: '',
+	author: 'Julie Ng',
+	footer: 'Julie Ng | NodeConf EU | November 2019'
 }

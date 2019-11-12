@@ -3,8 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>{{ title }}</title>
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+
+		{{#if description}}
+			<meta name="description" content="{{ description }}">
+		{{/if}}
+
+		{{#if author}}
+			<meta name="author" content="{{ author }}">
+		{{/if}}
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +40,9 @@
 	<body>
 
 		<div class="reveal">
+			{{#if footer}}
+				<footer class="presentation-footer">{{ footer }}</footer>
+			{{/if}}
 			<div class="slides">
 				{{> slides }}
 			</div>
@@ -50,6 +59,7 @@
 				width: 1280,
 				height: 720,
 				margin: 0.1,
+				slideNumber: true,
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
@@ -59,7 +69,8 @@
 					// { src: 'assets/vendor/revealjs/plugin/highlight/highlight.js', async: true },
 					// { src: 'assets/vendor/revealjs/plugin/search/search.js', async: true },
 					// { src: 'assets/vendor/revealjs/plugin/zoom-js/zoom.js', async: true },
-					// { src: 'assets/vendor/revealjs/plugin/notes/notes.js', async: true },
+					{ src: 'assets/vendor/revealjs/plugin/notes/notes.js', async: true },
+					{ src: 'assets/vendor/revealjs/plugin/notes-server/client.js', async: true },
 					{ src: 'assets/vendor/prism.js', async: true }
 					// { src: 'https://platform.twitter.com/widgets.js', async: true }
 				]

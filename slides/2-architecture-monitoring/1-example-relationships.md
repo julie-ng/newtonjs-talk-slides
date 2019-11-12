@@ -21,7 +21,10 @@ const data = {
 ```
 
 Note:
+**So I asked myself, what if we diagrammed with code?**
 
 - start simple
 - just components
 - no boundaries (boxes)
+
+**But I'm not the first with this idea...**

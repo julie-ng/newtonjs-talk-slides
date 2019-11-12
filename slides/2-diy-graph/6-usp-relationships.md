@@ -4,9 +4,9 @@ Architecture
 
 <img src="./images/architecture/dependencies.png" alt="Monitoring Microservices">
 
-| Color | Label | Meaning |
+| Label | Color | Meaning |
 |:--|:--|:--|
-| **Highlighted Node** | green | Point of Reference |
+| **Highlighted Node** | green | healthy |
 | **Source** | red | has problems if referenced node is not available |
 | **Deep Source** | orange | might not be aware of Source's dependency on Referenced Node |
 | **Target** | yellow | no direct dependency | 

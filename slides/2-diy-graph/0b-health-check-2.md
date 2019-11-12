@@ -1,4 +1,4 @@
-Back to the roots
+Open Web
 
 # IETF: Standardized Health Check Format
 
@@ -26,4 +26,8 @@ Back to the roots
 ```
 
 Note:
-- Details: can add details of other components 😮
+- Why Healthchecks?
+	- Prefer agnostic and open-source to vendor software
+	- Standard for cloud (auto-scaling)
+- IETF: Internet Engineering Task Force
+- **Note Details**: can add details of other components 😮

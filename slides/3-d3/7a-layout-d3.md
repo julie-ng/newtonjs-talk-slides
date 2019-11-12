@@ -19,5 +19,5 @@ let force = d3.forceSimulation(this.network.get('nodes'))
 ```
 
 Note:
-- Better, but flawed too
-- Layout must be recalculated everytime (see demo)
+- Default Force, Particles Engine
+- **Too uniform? I can't see relationships**

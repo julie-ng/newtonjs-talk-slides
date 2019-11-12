@@ -16,8 +16,8 @@ Architecture Documentation
 
 Note:
 - PowerPointing and Drawing **Boxes**
-- **Arrows**: indicate dependencies or flow?
+- **Arrows**: indicate dependencies or request flow?
 - Very pretty – but very **static**
 - NO measurements
-- Shows intent, not real-time
+- Shows _intent_, not real-time
 

@@ -9,3 +9,8 @@ d3.js
 	- `nodes.exit()`
 	- `nodes.enter()`
 	- `nodes.merge() // update`
+
+Note:
+### General Update Pattern
+1. perform data join
+2. perform operations on `exit`, `enter`, and `update` selections

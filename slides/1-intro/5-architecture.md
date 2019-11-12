@@ -7,5 +7,8 @@ Fast-foward to 2019
 <cite class="center">Source: [Microsoft Azure: Introduction to microservices architectures](https://docs.microsoft.com/en-us/azure/architecture/microservices/introduction)</cite>	
 
 Note:
-- No one talks about service discovery and service management
-- EA Role - across teams
+
+**Yes more complicated - Service Discovery!**
+- 3 instances = 3 addresses -=> who to talk to?
+- No one talks about difficult problems like service discovery
+- Or hard questions - what if the cloud/service is not there?

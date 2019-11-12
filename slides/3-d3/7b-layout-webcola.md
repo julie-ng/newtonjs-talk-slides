@@ -24,5 +24,6 @@ force.start(50)
 ```
 
 Note:
-- Default Force, Particles Engine
-- Too uniform?
+- Better, but **bugs:**
+- Layout must be re-calculated everytime (see demo)
+- Can't highlight paths for multiple nodes that are down

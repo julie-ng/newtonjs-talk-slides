@@ -5,10 +5,9 @@ Downstream Services
 <img src="./images/intro/view-10k.svg" alt="" class="img-center">
 
 Note:
-- simple - just 4 components
-- Microservices became the new hotness in 2014
-	- small services with strong modular boundaries
-	- built around business capabilities
-	- independently and automatic deployments
-	- technological diversity
-	- isolate faliure
+- This diagram = simple, just 4 components
+- **boundaries = business capabilities**
+- scales independently
+- isolate failure
+- auto-deployment (DevOps)
+- technologically diverse

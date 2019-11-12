@@ -7,9 +7,13 @@ Architecture Documentation
 <cite>Graphic Source - [Microsoft Azure: Application Map: Triage Distributed Applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-map)</cite>
 
 Note:
-- In the cloud? Why not diagram automatically?
-- Advantages:
-	- little to no setup
-- Disadvantages:
-	- Trace Agents like a virus --> screw up deployments
-	- Quickly gets overwhelming as your services grow
+Example from Azure. 
+
+**Great: visualize relationships with little or no setup**
+
+Disadvantages of automation:
+- Quickly gets overwhelming as services grow
+- Show supporting components? Sidecars?
+- Automation via code injection, another dependency
+
+Colors -> integrate monitoring, --> **key to real time?**

@@ -8,7 +8,7 @@ Architecture and Uptime
 
 Note:
 
-- Ok, no automation
+- No automation => Curation
 - Do it yourself (DIY)... but how is everthing connected?
 - Missing relationships – remember those arrows?
-- To understand how everything is connected, we have to go return to the humans…
+- To understand how everything is connected, we have to **return to the humans…**

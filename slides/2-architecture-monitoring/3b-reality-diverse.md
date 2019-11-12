@@ -5,6 +5,4 @@ Organizations - diverse
 <img src="./images/organizations/diverse.png" alt="Diverse Organization" class="img-full">
 
 Note:
-- Using PC for first time
-- Apple = privelge
-- What does the web look like for the rest of world?
+- Is this good or bad for our architecture?

@@ -16,8 +16,9 @@ Not infallible
 - What is cost of downtime?
 
 Note:
-
+**Cloud is always available, right? No**
+- Dependencies ==> hard to hit 5 9s.
 - Allianz Germany, Operating Profit 2018
-	- 2.4B € in 2018
-	- 6.5M € per day
-	- 4.5K € per minute
+	- 2.4 Billion € in 2018
+	- 6.5 Million € per day
+	- 4.5 Thousand € per minute

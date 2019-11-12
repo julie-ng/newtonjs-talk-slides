@@ -24,3 +24,7 @@ const data = {
 	]
 }
 ```
+
+Note:
+- Format for a network graph
+- Reference based, not array index based

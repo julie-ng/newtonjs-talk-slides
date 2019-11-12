@@ -9,4 +9,5 @@ Note:
 - 3 generic components actually 5?!
 - why own invoices DB? 
 	- snapshot of prices, items at that time
-- queue for resilience
+- messaging infra for resilience (retries)
+- **wait, it gets even more complicated**

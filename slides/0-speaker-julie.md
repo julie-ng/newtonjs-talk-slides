@@ -4,15 +4,13 @@ Who am I
 
 <img src="./images/julie.jpg" class="img-right">
 
-- Building for the web since 1999
-- Self-taught, failed entrepreneuer
-- Co-organizer: UX Munich, 2013, 2015
-- Developer, Enterprise Architect - Allianz, 2016-2019
-- Cloud Solution Architect - Microsoft, today
-- Climber
-- Loves Open-Source
-- Designer at &hearts;
+- Cloud Solution Architect at Microsoft
+- Previously Enterprise Architect at Allianz Germany
+- 👩‍💻 Making for the web since 1999
+- 🧗‍♀️ Photo: Climbing in Rovinj, Croatia
 
 Note:
-- Big picture person
-- Designer is not a creative, but a problem solver
+- help enterprises transition to the cloud, bringing business systems with them
+- Big picture person 
+- Self-taught, failed entrepreneuer
+- ~~A designer _solves problems_ within a set of _constraints_~~	

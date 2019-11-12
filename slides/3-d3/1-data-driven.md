@@ -10,6 +10,7 @@ d3.js
 - Apply values to DOM attributes: `cx`, `cy` and `r`
 
 ```javascript
+
 const data = [
   { 'x': 1.0, 'y': 1.1, 'prio': 5 },
   { 'x': 2.0, 'y': 2.5, 'prio': 1 },
@@ -21,8 +22,10 @@ svg.selectAll('circle')
     .attr('cx', (d) => d.x)
     .attr('cy', (d) => d.y)
     .attr('r', (d) => 10 / d.prio) // larger circle
+     
 ```
 
 Note:
-  - Animate
-  - There is no CRUD
+- No DOM management
+- There is no CRUD
+- Just define styles

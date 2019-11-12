@@ -9,11 +9,11 @@ svg.selectAll("circle")
     enter => enter.append("circle").attr("fill", "green"),
     update => update.attr("fill", "blue")
   )
-    .attr("stroke", "black");
+  .attr("stroke", "black");
 ```
 
 <cite>Source: https://github.com/d3/d3-selection</cite>
 
 Note: 
-	- New as of version 1.4, 5 months ago?
+	- New as of version 1.4, one year ago?
 	- solves problem of large files with sequential blocks of code.

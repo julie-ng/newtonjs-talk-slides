@@ -21,3 +21,10 @@ links.enter()
 		.attr('id', (l) => 'link-' + l.source.id + '-' + l.target.id)
 		.attr('marker-end', 'url(#end)')
 ```
+
+Note:
+
+- notice key function method
+- same general update pattern
+- key functions are used to label a data point, so you can keep track of them
+- **wrong key? wrong DOM element**

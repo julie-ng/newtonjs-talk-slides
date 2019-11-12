@@ -5,14 +5,8 @@ Phones' Performance problems
 <img src="./images/intro/graph-3-bffs.png" alt="Introducing backends for frontends" class="img-center">
 
 Note:
-- Internet and our App continues to grow. Too big for 1 server
-- Split business domains into multiple downstream services
+- Internet, Apps continues to grow. 
+- Too big for 1 server -> Split into **microservices**
+- Frontends are needy -> talk to 1 BFFs, instead of multiple services
 
-**Frontends:**
-- don’t want to talk to 3 different services
-- have diff. requirements (many vs. fewer API calls)
-
-**Backends**
-- now distinct gatekeepers of state for distinct mediums
-
-- Downstream services -> Opening a can of worms
+**So what do Microservices look like?**

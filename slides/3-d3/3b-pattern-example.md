@@ -1,6 +1,6 @@
 d3.js
 
-# Nodes
+# Pattern Example - Nodes
 
 ```javascript
 // join
@@ -23,3 +23,11 @@ nodes = nodes.enter()
 		.attr('data-title', (n) => n.label) // any html property
 		.attr('class', (n) => 'node status-' + n.status) // styling
 ```
+
+Note: 
+
+- Chain methods, e.g. `remove()` onto `exit()`
+- Here: new and existing nodes styled same
+- **Disadvantage: order matters…**
+	- join, exit, enter, update
+	- not intuitiive

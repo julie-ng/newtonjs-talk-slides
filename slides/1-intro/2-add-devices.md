@@ -6,10 +6,9 @@ Introducing the iPhone
 
 Note:
 
-- Internet consumption grew
-- Mediums evolved
-
+- Hello mobile devices!
+- Internet consumption changes
 - **Browser: I don’t need you backend**. I’m an offline Single Page App (SPA)
-- Backend: Fine. I can focus on guardians of State (database)
+- Backend: Fine. I can focus on state (formally known as a database)
 
 But not for long…

@@ -67,6 +67,12 @@ img {
   margin-left: 2em;
   max-width: 50%; }
 
+.print-pdf .reveal section > img {
+  max-width: 95%;
+  max-height: 450px; }
+  .print-pdf .reveal section > img.img-right {
+    max-width: 50%; }
+
 table {
   margin: 1em 0;
   border-spacing: 0; }
@@ -299,9 +305,6 @@ h1 + pre {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: var(--code-bg-color); }
-
-section[data-markdown-parsed="true"] h1 + ul {
-  max-width: 50%; }
 
 ul + pre {
   position: absolute;

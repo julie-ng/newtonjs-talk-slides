@@ -7,15 +7,6 @@
 @import "content";
 @import "overrides";
 
-
-// Slides with 1/2 list, 1/2 code
-
-section[data-markdown-parsed="true"] {
-	h1 + ul {
-		max-width: 50%;
-	}
-}
-
 ul + pre {
 	position: absolute;
 	right: 0;

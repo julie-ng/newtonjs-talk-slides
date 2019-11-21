@@ -60,6 +60,20 @@ img {
 	max-width: 50%;
 }
 
+.print-pdf {
+	.reveal {
+		section {
+			& > img {
+				max-width: 95%;
+				max-height: 450px;
+
+				&.img-right {
+					max-width: 50%;
+				}
+			}
+		}
+	}
+}
 
 // Tables
 // ------
